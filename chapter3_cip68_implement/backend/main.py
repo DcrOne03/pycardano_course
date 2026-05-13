@@ -291,6 +291,7 @@ async def root():
     }
 
 
+@app.get("/api/health")
 @app.head("/api/health")
 async def api_health_check():
     """Compatibility health endpoint for HEAD/GET pings."""
@@ -300,6 +301,7 @@ async def api_health_check():
         "network": os.getenv("NETWORK", "Preprod"),
         "timestamp": datetime.now().isoformat()
     }
+
     
 # Endpoint chuyển đổi địa chỉ từ hex sang bech32
 @app.get("/api/convert-address")
