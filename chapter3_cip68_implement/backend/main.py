@@ -290,9 +290,10 @@ async def root():
         "timestamp": datetime.now().isoformat()
     }
 
-@app.get("/api/health")
-async def health_check():
-    """UptimeRobot keep-alive endpoint."""
+
+@app.head("/api/health")
+async def api_health_check():
+    """Compatibility health endpoint for HEAD/GET pings."""
     return {
         "status": "ok",
         "service": "CIP-68 Dynamic Asset API",
